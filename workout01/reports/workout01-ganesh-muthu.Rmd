@@ -41,7 +41,15 @@ twoPointEffective = arrange(summarise(
   total = sum(name == name & shot_type == '2PT Field Goal'), 
   made = sum(shot_made_flag == 'shot_yes' & shot_type == '2PT Field Goal'), 
   perc_made = (made/total)*100), desc(perc_made))
+
+png("../images/twoPoint.png", res = 100, height = nrow(twoPointEffective)*50, width = ncol(twoPointEffective)*110)
 grid.table(twoPointEffective)
+invisible(dev.off())
+```
+
+
+```{r out.width='80%', echo = FALSE, fig.align = 'center', message=FALSE, comment=""}
+knitr::include_graphics('../images/twoPoint.png')
 ```
 
 As you can see, Andre Iguodala is the most effective two point shooter of the five players with a percentage made of 63.80%. He is closely followed by Kevin Durant at 60.65%. After Kevin Durant, Stephen Curry made 53.99%, Klay Thompson made 51.41%, and Draymond Green made 49.42%. 
@@ -60,7 +68,15 @@ threePointEffective = arrange(summarise(
   total = sum(name == name & shot_type == '3PT Field Goal'), 
   made = sum(shot_made_flag == 'shot_yes' & shot_type == '3PT Field Goal'), 
   perc_made = (made/total)*100), desc(perc_made))
+
+png("../images/threePoint.png", res = 100, height = nrow(threePointEffective)*50, 
+    width = ncol(threePointEffective)*110)
 grid.table(threePointEffective)
+invisible(dev.off())
+```
+
+```{r out.width='80%', echo = FALSE, fig.align = 'center', message=FALSE, comment=""}
+knitr::include_graphics('../images/threePoint.png')
 ```
 
 As you can see, Klay Thompson is actually the most effective three point shooter of the five players measured with an effective three point percentage of 42.41. He is closely followed by Stephen Curry at 40.75%. Then, Kevin Durant shoots 38.60%, Andre Iguodala shoots 36.02%, and Draymond Green shoots 31.89%.
@@ -72,15 +88,23 @@ Although many people think Stephen Curry is the best three point shooter on the 
 
 Thirdly, let’s analyze the overall effective shooting percentages of Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry. 
 
-```{r chart3, echo=FALSE, message = FALSE}
+```{r chart3, echo=FALSE, message = FALSE, comment=""}
 shotsData = read.csv('../data/shots-data.csv', header = TRUE, sep = ",")
 effective = arrange(summarise(
   group_by(shotsData, name), 
   total = sum(name == name), 
   made = sum(shot_made_flag == 'shot_yes'), 
   perc_made = (made/total)*100), desc(perc_made))
+
+png("../images/overall.png", res = 100, height = nrow(effective)*50, width = ncol(effective)*110)
 grid.table(effective)
+invisible(dev.off())
 ```
+
+```{r out.width='80%', echo = FALSE, fig.align = 'center', message=FALSE, comment=""}
+knitr::include_graphics('../images/overall.png')
+```
+
 
 Although Kevin Durant was neither the best three point shooter nor the best two point shooter, he is actually the best overall shooter of the five players measured. Durant makes an excellent 54.09% of his shots, while Andre Iguodala is second at 51.75% of shots made. Klay Thompson at 47.13%, Stephen Curry at 46.72%, and Draymond Green at 42.38% complete analysis.
 	
@@ -90,7 +114,7 @@ This chart makes clear that Kevin Durant is an astonishing accurate shooter. Alt
 
 Finally, let’s take a look at the shot charts for Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
 
-```{r out.width='80%', echo = FALSE, fig,align = 'center'}
+```{r out.width='80%', echo = FALSE, fig.align = 'center'}
 knitr::include_graphics('../images/gsw-shot-charts.png')
 ```
 

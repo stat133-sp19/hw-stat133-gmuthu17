@@ -14,7 +14,7 @@ Effective 2PT Shooting Percentage
 
 First, let’s analyze the effective two point shooting percentages of Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
 
-![](workout01-ganesh-muthu_files/figure-markdown_github/chart1-1.png)
+<img src="../images/twoPoint.png" width="80%" style="display: block; margin: auto;" />
 
 As you can see, Andre Iguodala is the most effective two point shooter of the five players with a percentage made of 63.80%. He is closely followed by Kevin Durant at 60.65%. After Kevin Durant, Stephen Curry made 53.99%, Klay Thompson made 51.41%, and Draymond Green made 49.42%.
 
@@ -25,7 +25,7 @@ Effective 3PT Shooting Percentage
 
 Next, let’s analyze the effective three point shooting percentages of Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
 
-![](workout01-ganesh-muthu_files/figure-markdown_github/chart2-1.png)
+<img src="../images/threePoint.png" width="80%" style="display: block; margin: auto;" />
 
 As you can see, Klay Thompson is actually the most effective three point shooter of the five players measured with an effective three point percentage of 42.41. He is closely followed by Stephen Curry at 40.75%. Then, Kevin Durant shoots 38.60%, Andre Iguodala shoots 36.02%, and Draymond Green shoots 31.89%.
 
@@ -36,7 +36,7 @@ Effective Shooting Percentage
 
 Thirdly, let’s analyze the overall effective shooting percentages of Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
 
-![](workout01-ganesh-muthu_files/figure-markdown_github/chart3-1.png)
+<img src="../images/overall.png" width="80%" style="display: block; margin: auto;" />
 
 Although Kevin Durant was neither the best three point shooter nor the best two point shooter, he is actually the best overall shooter of the five players measured. Durant makes an excellent 54.09% of his shots, while Andre Iguodala is second at 51.75% of shots made. Klay Thompson at 47.13%, Stephen Curry at 46.72%, and Draymond Green at 42.38% complete analysis.
 
@@ -47,7 +47,7 @@ Player Shot Charts
 
 Finally, let’s take a look at the shot charts for Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry.
 
-<img src="../images/gsw-shot-charts.png" width="80%" />
+<img src="../images/gsw-shot-charts.png" width="80%" style="display: block; margin: auto;" />
 
 Starting with Iguodala, we can see that he takes significantly less shots than the other four players. There is a decent number of shots clustered at the basket, which complements his high effective two point shooting percentage.
 
