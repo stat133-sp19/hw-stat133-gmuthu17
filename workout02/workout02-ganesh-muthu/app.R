@@ -112,8 +112,7 @@ server <- function(input, output) {
     simulation <- data.frame(year = 0:input$ye, variable = rep(c('no_contrib', 'fixed_contrib', 'growing_contrib'), each = input$ye + 1), balance = c(no_contrib, fixed_contrib, growing_contrib))
     simulation$variable <- factor(simulation$variable, levels = c('no_contrib', 'fixed_contrib', 'growing_contrib'))
 
-    sPlot = ggplot(data = simulation, aes(x = year, y = balance, col = variable)) + geom_line() + theme_bw() + geom_point() + 
-      ggtitle('Three modes of investing') + xlab('year') + ylab('value') + scale_color_discrete('variable')
+    sPlot = ggplot(data = simulation, aes(x = year, y = balance, col = variable)) + geom_line() + theme_bw() + geom_point() + ggtitle('Three modes of investing') + xlab('year') + ylab('value') + scale_color_discrete('variable')
     
     if (input$facet == "Yes") {
       sPlot = sPlot + geom_area(aes(fill = variable), alpha = .5) + facet_wrap(~variable)
