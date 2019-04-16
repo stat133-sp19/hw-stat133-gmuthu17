@@ -1,0 +1,3 @@
+Description:
+
+This workout involved creating a R Shiny app to display different types of savings models. The app includes slider inputs for the initial amount, return rate, years of investment, annual contribution, and the growth rate. Additionally, the app gives the user the option to display the three lines representing the no contribution, fixed contribution, and growing contribution model lines on the same graph (the default option), or as seperate facetted graphs. Finally, the app includes a data table under the graph that displays the balance available in each savings model at a given time.

@@ -9,21 +9,21 @@ ui <- fluidPage(
    
    # Input Widgets
    fluidRow(
-     column(3,
+     column(4,
        sliderInput("initial",
                  "Initial Amount",
                  min = 0,
                  max = 100000,
                  value = 1000,
                  step = 500)),
-     column(3,
+     column(4,
             sliderInput("rate",
                         "Return Rate (in %)",
                         min = 0,
                         max = 20,
                         value = 5,
                         step = .1)),
-     column(3,
+     column(4,
             sliderInput("ye",
                         "Years",
                         min = 0,
@@ -33,21 +33,21 @@ ui <- fluidPage(
    ),
    
    fluidRow(
-     column(3,
+     column(4,
             sliderInput("annual",
                         "Annual Contribution",
                         min = 0,
                         max = 50000,
                         value = 2000,
                         step = 500)),
-     column(3,
+     column(4,
        sliderInput("growth",
                    "Growth Rate (in %)",
                    min = 0,
                    max = 20,
                    value = 2,
                    step = .1)),
-     column(3, 
+     column(4, 
         selectInput("facet",
                     "Facet?",
                     choices = c("Yes", "No"),
@@ -57,7 +57,7 @@ ui <- fluidPage(
       # Show a plot of the generated distribution
       mainPanel(
         h4("Timelines"),
-        plotOutput("p2"),
+        plotOutput('p2'),
         h4("Balances"),
         tableOutput('balances')
       )
@@ -99,9 +99,9 @@ server <- function(input, output) {
   
   output$p2 <- renderPlot({
     
-    no_contrib <- c()
-    fixed_contrib <- c()
-    growing_contrib <- c()
+    no_contrib = c()
+    fixed_contrib = c()
+    growing_contrib = c()
     
     for (k in 1:(input$ye + 1)) {
       no_contrib[k] = future_value(amount = input$initial, rate = input$rate*.01, years = k - 1)
@@ -109,10 +109,11 @@ server <- function(input, output) {
       growing_contrib[k] = future_value(amount = input$initial, rate = input$rate*.01, years = k - 1) + growing_annuity(contrib = input$annual, rate = input$rate*.01, growth = input$growth*.01, years = k - 1)
     }
     
-    simulation <- data.frame(year = 0:input$ye, variable = rep(c('no_contrib', 'fixed_contrib', 'growing_contrib'), each = input$ye + 1), balance = c(no_contrib, fixed_contrib, growing_contrib))
-    simulation$variable <- factor(simulation$variable, levels = c('no_contrib', 'fixed_contrib', 'growing_contrib'))
+    simulation = data.frame(year = 0:input$ye, variable = rep(c('no_contrib', 'fixed_contrib', 'growing_contrib'), each = input$ye + 1), balance = c(no_contrib, fixed_contrib, growing_contrib))
+    simulation$variable = factor(simulation$variable, levels = c('no_contrib', 'fixed_contrib', 'growing_contrib'))
 
-    sPlot = ggplot(data = simulation, aes(x = year, y = balance, col = variable)) + geom_line() + theme_bw() + geom_point() + ggtitle('Three modes of investing') + xlab('year') + ylab('value') + scale_color_discrete('variable')
+    sPlot = ggplot(data = simulation, aes(x = year, y = balance, col = variable)) + geom_line() + theme_bw() + geom_point() + 
+      ggtitle('Three modes of investing') + xlab('year') + ylab('value') + scale_color_discrete('variable')
     
     if (input$facet == "Yes") {
       sPlot = sPlot + geom_area(aes(fill = variable), alpha = .5) + facet_wrap(~variable)
