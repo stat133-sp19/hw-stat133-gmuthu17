@@ -1,0 +1,18 @@
+Package: binomial
+Type: Package
+Title: Binomial Distribution Functions
+Version: 0.1.0
+Author: Ganesh Muthu
+Maintainer: Ganesh Muthu <gmuthu@berkeley.edu>
+Description: This package allows a user to work 
+    with the binomial distribution, create binomial random variables, 
+    and get several useful statistics from it. It also has functions for
+    a cumulative version.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

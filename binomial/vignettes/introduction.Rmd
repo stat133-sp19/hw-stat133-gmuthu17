@@ -1,0 +1,91 @@
+---
+title: "Getting Started with Binomial"
+author: "Ganesh Muthu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with Binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+
+## Binomial
+
+The package `"binomial"` is a package that allows a user to work 
+with the binomial distribution, create binomial random variables, and get several useful statistics from it.
+
+### Generating a Binomial Variable
+
+```{r var}
+binomialVar = bin_variable(trials = 5, prob = .4)
+```
+
+### Printing a Binomial Variable
+
+```{r print}
+print(binomialVar)
+```
+
+### Summarizing a Binomial Variable
+
+```{r summary}
+summary(binomialVar)
+```
+
+### Getting Binomial Statistics without a Binomial Variable
+```{r stats}
+bin_mean(trials = 5, prob = .4)
+bin_variance(trials = 5, prob = .4)
+bin_mode(trials = 5, prob = .4)
+bin_skewness(trials = 5, prob = .4)
+bin_kurtosis(trials = 5, prob = .4)
+```
+
+### Combination Calculator
+
+```{r combo}
+#5 choose 2
+bin_choose(n = 5, k = 2)
+```
+
+### Probability Calculator
+
+```{r prob}
+#Probability of 2 successes in 5 trials with a 50% chance of success
+bin_probability(success = 2, trials = 5, prob = .5)
+```
+
+### Generating Binomial Distribution
+
+```{r dist, warning=FALSE}
+bin_distribution(5, 0.5)
+```
+
+### Plotting a Binomial Distribution
+
+```{r distP, warning=FALSE}
+x = bin_distribution(5, 0.5)
+plot(x)
+```
+
+### Generating a Cumulative Binomial Distribution
+
+```{r dist2, warning=FALSE}
+bin_cumulative(5, 0.5)
+```
+
+### Plotting a Cumulative Binomial Distribution
+
+```{r distP2, warning=FALSE}
+y = bin_cumulative(5, 0.5)
+plot(y)
+```
+
+
+
+
